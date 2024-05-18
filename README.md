@@ -66,7 +66,7 @@ ou
 yarn dev
 ```
 
-A aplicação estará disponível em http://localhost:5173/[http://localhost:5173/].
+A aplicação estará disponível em [http://localhost:5173/](http://localhost:5173/).
 <!-- 
 ##Estrutura do Projeto
 Aqui está uma visão da estrutura de diretórios e arquivos do projeto.
