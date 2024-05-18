@@ -112,7 +112,7 @@ Se você quiser contribuir com este projeto, siga estas etapas:
 5. Abra um Pull Request.
 
 ## Licença
-Este projeto está licenciado sob a MIT License.
+Este projeto está licenciado sob a [MIT License](https://github.com/oricardos/marvel-api?tab=MIT-1-ov-file#readme).
 
 
 Espero que isso ajude! Sinta-se à vontade para ajustar e adicionar mais detalhes conforme necessário para melhor atender às necessidades do seu projeto.
