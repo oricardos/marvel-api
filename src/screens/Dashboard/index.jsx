@@ -21,7 +21,7 @@ export const Dashboard = () => {
     onSwiper: (swiper) => {
       swiperRef.current = swiper;
     },
-    breakpoints:{
+    breakpoints: {
       640: {
         slidesPerView: 5,
         spaceBetween: 10,
@@ -34,7 +34,7 @@ export const Dashboard = () => {
         slidesPerView: 6,
         spaceBetween: 30,
       },
-    }
+    },
   };
 
   useEffect(() => {
@@ -91,10 +91,17 @@ export const Dashboard = () => {
           <div className="flex justify-between mb-8">
             <h1 className="text-4xl">Heroes</h1>
             <div className="flex gap-4">
-              <button onClick={() => swiperRef?.current.slidePrev()}>
+              {/* TODO criar componente para o botão */}
+              <button
+                className="w-8 h-8 flex justify-center items-center hover:bg-gray-300 transition-all rounded-full"
+                onClick={() => swiperRef?.current.slidePrev()}
+              >
                 <ChevronLeftIcon className="w-6 h-6" />
               </button>
-              <button onClick={() => swiperRef?.current.slideNext()}>
+              <button
+                className="w-8 h-8 flex justify-center items-center hover:bg-gray-300 transition-all rounded-full"
+                onClick={() => swiperRef?.current.slideNext()}
+              >
                 <ChevronRightIcon className="w-6 h-6" />
               </button>
             </div>
