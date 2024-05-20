@@ -3,10 +3,11 @@ import axios from "axios";
 import md5 from "md5";
 import { SwiperSlide } from "swiper/react";
 import { Slider } from "../../components/Slider";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
+import { ChangeSliderButtons } from "../../components/ChangeSliderButtons";
 
 export const Dashboard = () => {
   const swiperRef = useRef();
+  const comicsRef = useRef();
   const privateKey = import.meta.env.VITE_PRIVATE_KEY;
   const publicKey = import.meta.env.VITE_PUBLIC_KEY;
   const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -14,12 +15,35 @@ export const Dashboard = () => {
   const [characters, setCharacters] = useState([]);
   const [comics, setComics] = useState([]);
 
-  const settings = {
+  const heroesSettings = {
     spaceBetween: 5,
     // slidesPerView: 6,
     loop: true,
     onSwiper: (swiper) => {
       swiperRef.current = swiper;
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 5,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 30,
+      },
+    },
+  };
+
+  const comicsSettings = {
+    spaceBetween: 5,
+    // slidesPerView: 6,
+    loop: true,
+    onSwiper: (swiper) => {
+      comicsRef.current = swiper;
     },
     breakpoints: {
       640: {
@@ -81,8 +105,8 @@ export const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    console.log({ characters });
-  }, [characters]);
+    console.log({ comics });
+  }, [comics]);
 
   return (
     <div className="space-y-20">
@@ -90,25 +114,11 @@ export const Dashboard = () => {
         <div className="w-auto">
           <div className="flex justify-between mb-8">
             <h1 className="text-4xl">Heroes</h1>
-            <div className="flex gap-4">
-              {/* TODO criar componente para o botão */}
-              <button
-                className="w-8 h-8 flex justify-center items-center hover:bg-gray-300 transition-all rounded-full"
-                onClick={() => swiperRef?.current.slidePrev()}
-              >
-                <ChevronLeftIcon className="w-6 h-6" />
-              </button>
-              <button
-                className="w-8 h-8 flex justify-center items-center hover:bg-gray-300 transition-all rounded-full"
-                onClick={() => swiperRef?.current.slideNext()}
-              >
-                <ChevronRightIcon className="w-6 h-6" />
-              </button>
-            </div>
+            <ChangeSliderButtons swiperRef={swiperRef} />
           </div>
           {/* Swiper NÃO PODE FICAR DENTRO DE UMA DIV COM FLEX/GRID */}
           {/* https://github.com/nolimits4web/swiper/issues/3599 */}
-          <Slider settings={settings}>
+          <Slider settings={heroesSettings}>
             {characters.map((character) => (
               <SwiperSlide key={character.id}>
                 <img
@@ -122,21 +132,34 @@ export const Dashboard = () => {
           </Slider>
         </div>
       </>
-      <div className="flex">
-        <div>
+      <div>
+        <div className="flex justify-between mb-8">
           <h1 className="text-4xl">Comics</h1>
-          <div className="flex gap-4">
-            {comics.map((comic) => (
+          <ChangeSliderButtons swiperRef={comicsRef} />
+        </div>
+        <Slider settings={comicsSettings}>
+          {comics.map((comic) => (
+            <SwiperSlide key={comic.id}>
               <img
-                key={comic.id}
-                title={comic.name}
+                title={comic.title}
                 className="w-48 h-auto object-cover rounded-xl"
                 src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                 alt={comic.name}
               />
-            ))}
-          </div>
-        </div>
+            </SwiperSlide>
+          ))}
+          </Slider>
+        {/* <div className="flex gap-4">
+          {comics.map((comic) => (
+            <img
+              key={comic.id}
+              title={comic.name}
+              className="w-48 h-auto object-cover rounded-xl"
+              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              alt={comic.name}
+            />
+          ))}
+        </div> */}
       </div>
     </div>
   );
