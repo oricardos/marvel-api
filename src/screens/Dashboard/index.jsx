@@ -4,6 +4,7 @@ import md5 from "md5";
 import { SwiperSlide } from "swiper/react";
 import { Slider } from "../../components/Slider";
 import { ChangeSliderButtons } from "../../components/ChangeSliderButtons";
+import { ItemDisplayCard } from "../../components/ItemDisplayCard";
 
 export const Dashboard = () => {
   const swiperRef = useRef();
@@ -105,8 +106,8 @@ export const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    console.log({ comics });
-  }, [comics]);
+    console.log({ characters });
+  }, [characters]);
 
   return (
     <div className="space-y-20">
@@ -121,12 +122,7 @@ export const Dashboard = () => {
           <Slider settings={heroesSettings}>
             {characters.map((character) => (
               <SwiperSlide key={character.id}>
-                <img
-                  title={character.name}
-                  className="w-48 h-48 object-cover rounded-xl"
-                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  alt={character.name}
-                />
+                <ItemDisplayCard item={character} type="hero" name={character.name} />
               </SwiperSlide>
             ))}
           </Slider>
@@ -140,12 +136,7 @@ export const Dashboard = () => {
         <Slider settings={comicsSettings}>
           {comics.map((comic) => (
             <SwiperSlide key={comic.id}>
-              <img
-                title={comic.title}
-                className="w-48 h-auto object-cover rounded-xl"
-                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                alt={comic.name}
-              />
+              <ItemDisplayCard item={comic} type="comic" name={comic.title} />
             </SwiperSlide>
           ))}
           </Slider>

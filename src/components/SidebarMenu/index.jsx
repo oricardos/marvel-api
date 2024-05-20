@@ -12,7 +12,8 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
+import MarvelIcon from '/marvel.svg'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: HomeIcon, current: true },
@@ -87,7 +88,7 @@ export const SidebarMenu = () => {
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        src={MarvelIcon}
                         alt="Your Company"
                       />
                     </div>
@@ -101,14 +102,14 @@ export const SidebarMenu = () => {
                                   href={item.href}
                                   className={classNames(
                                     item.current
-                                      ? 'bg-gray-50 text-indigo-600'
-                                      : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
+                                      ? 'bg-gray-50 text-red-600'
+                                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-50',
                                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                   )}
                                 >
                                   <item.icon
                                     className={classNames(
-                                      item.current ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
+                                      item.current ? 'text-red-600' : 'text-gray-400 group-hover:text-red-600',
                                       'h-6 w-6 shrink-0'
                                     )}
                                     aria-hidden="true"
@@ -122,10 +123,10 @@ export const SidebarMenu = () => {
                         <li className="mt-auto">
                           <a
                             href="#"
-                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-600"
                           >
                             <Cog6ToothIcon
-                              className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
+                              className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-red-600"
                               aria-hidden="true"
                             />
                             Settings
@@ -143,12 +144,12 @@ export const SidebarMenu = () => {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-300 bg-white px-6 pb-4">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-300 bg-white px-6 py-4">
             <div className="flex h-16 shrink-0 items-center">
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt="Your Company"
+                className="h-auto w-3/5"
+                src={MarvelIcon}
+                alt="Marvel API"
               />
             </div>
             <nav className="flex flex-1 flex-col">
@@ -161,14 +162,14 @@ export const SidebarMenu = () => {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? 'bg-gray-50 text-indigo-600'
-                              : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
+                              ? 'bg-gray-50 text-red-600'
+                              : 'text-gray-700 hover:text-red-600 hover:bg-gray-50',
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                           )}
                         >
                           <item.icon
                             className={classNames(
-                              item.current ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
+                              item.current ? 'text-red-600' : 'text-gray-400 group-hover:text-red-600',
                               'h-6 w-6 shrink-0'
                             )}
                             aria-hidden="true"
@@ -182,10 +183,10 @@ export const SidebarMenu = () => {
                 <li className="mt-auto">
                   <a
                     href="#"
-                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-600"
                   >
                     <Cog6ToothIcon
-                      className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
+                      className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-red-600"
                       aria-hidden="true"
                     />
                     Settings

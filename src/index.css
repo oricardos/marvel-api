@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;  
+
+
+body {
+    font-family: 'Krona One', sans-serif;
+}
+
+.krona-one-regular {
+    font-family: "Krona One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

@@ -1,4 +1,4 @@
-import { SidebarMenu } from "../components/Menu"
+import { SidebarMenu } from "../components/SidebarMenu"
 
 
 export const Layout = () => {
