@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const ItemDisplayCard = ({ item, type, name }) => {
     const size = type === 'hero' ? 'w-full h-48' : 'w-48 h-auto'
     return (
@@ -10,4 +12,10 @@ export const ItemDisplayCard = ({ item, type, name }) => {
             <h2 className="my-3">{name}</h2>
         </div>
     )
+}
+
+ItemDisplayCard.propTypes = {
+    item: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 }
