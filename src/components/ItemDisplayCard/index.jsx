@@ -1,5 +1,5 @@
 export const ItemDisplayCard = ({ item, type, name }) => {
-    const size = type === "hero" ? "w-full h-48" : "w-48 h-auto"
+    const size = type === 'hero' ? 'w-full h-48' : 'w-48 h-auto'
     return (
         <div className="text-center border-2 border-black">
             <img
@@ -10,5 +10,4 @@ export const ItemDisplayCard = ({ item, type, name }) => {
             <h2 className="my-3">{name}</h2>
         </div>
     )
-   
-};
+}
