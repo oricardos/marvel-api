@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { Character } from './screens/Character/index.jsx';
 
 const router = createBrowserRouter([
   {path: '/',
@@ -23,14 +24,21 @@ const router = createBrowserRouter([
       index: true,
       element: <Dashboard />
     },
+    // comics
     {
       path: "comics",
       element: <div>comics</div>
     },
+    // characters
     {
       path: "characters",
-      element: <div>characters</div>
+      element: <div>characters</div>,
     },
+    {
+      path: '/characters/:id',
+      element: <Character />
+    },
+    // stories
     {
       path: "stories",
       element: <div>stories</div>
